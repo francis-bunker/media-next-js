@@ -46,7 +46,10 @@ export default function ProfilePage({ params }: { params: Promise<{ uid: string 
       {(currentUser?._id === uid) ?
         <div className="container text-center p-4">
           <h1>My Profile</h1>
+          <p>Username: {username}</p>
+          <p>User Type: {currentUser?.user_type}</p>
           <button className="btn btn-primary" onClick={signout}>signout</button>
+
         </div>
         :
         <div className="container text-center p-4">

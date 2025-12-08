@@ -83,3 +83,10 @@ export const deletePost = async (postId: string) => {
     const response = await axiosWithCredentials.delete(`/api/posts/${postId}`);
     return response.data;
 }
+
+export const updateEmail = async (email: string) => {
+    const response = await axiosWithCredentials.post(`/api/users/profile/email`, {
+        email
+    });
+    return response.data;
+}

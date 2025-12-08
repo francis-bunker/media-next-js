@@ -3,6 +3,9 @@
 import * as client from "./client";
 import { useEffect, useReducer, useState } from "react";
 import Post from "./post";
+import AboutPage from "./about";
+import ProfilePage from "./profile/page";
+
 
 export default function Home() {
   const [posts, setPosts] = useState<any[]>([]);
@@ -21,12 +24,14 @@ export default function Home() {
 
   return (
     <div id="home" className="container-fluid">
-        <h2 className="mb-4 text-center">Recent Posts</h2>
-        {posts.map((post: any) => (
-          <div key={post._id} >
-            <Post {...post} onDelete={handlePostDeleted} />
-          </div>
-        ))}
+      <AboutPage />
+      <h2 className="mb-4 text-center">Recent Posts</h2>
+
+      {posts.map((post: any) => (
+        <div key={post._id} >
+          <Post {...post} onDelete={handlePostDeleted} />
+        </div>
+      ))}
     </div>
   );
 }
