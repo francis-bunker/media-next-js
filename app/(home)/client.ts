@@ -20,17 +20,14 @@ export const createPost = async (postData: any) => {
     return response.data;
 }
 export const signup = async (userData: any) => {
-    console.log(userData);
     const response = await axiosWithCredentials.post(`${HTTP_SERVER}/api/users/signup`, userData);
     return response.data;
 }
 export const signupAdmin = async (userData: any) => {
-    console.log(userData);
     const response = await axiosWithCredentials.post(`${HTTP_SERVER}/api/users/signup-admin`, userData);
     return response.data;
 }
 export const signin = async (userData: any) => {
-    console.log(userData);
     const response = await axiosWithCredentials.post(`${HTTP_SERVER}/api/users/signin`, userData);
     return response.data;
 }

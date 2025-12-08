@@ -12,14 +12,13 @@ export default function loginPage() {
   const [credentials, setCredentials] = useState<any>({});
   const dispatch = useDispatch();
   const signin = async () => {
-    console.log(`Signin with credentials: ${JSON.stringify(credentials)}`);
     const user = await client.signin(credentials);
     if (!user) return;
     dispatch(setCurrentUser(user));
     redirect("/profile");
   };
   return (
-    <div id="wd-signin-screen">
+    <div >
       <h1>Sign in</h1>
       <FormControl defaultValue={credentials.username}
         onChange={(e) => setCredentials({ ...credentials, username: e.target.value })}
@@ -27,8 +26,8 @@ export default function loginPage() {
       <FormControl defaultValue={credentials.password}
         onChange={(e) => setCredentials({ ...credentials, password: e.target.value })}
         className="mb-2" placeholder="password" type="password" id="wd-password" />
-      <Button onClick={signin} id="wd-signin-btn" className="w-100" > Sign in </Button>
-      <Link id="wd-signup-link" href="/signup"> Sign up </Link>
+      <Button onClick={signin}  className="w-100" > Sign in </Button>
+      <Link  href="/signup"> Sign up </Link>
     </div>
   );
 }

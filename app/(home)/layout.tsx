@@ -14,7 +14,6 @@ export default function layout({ children }: { children: ReactNode }) {
                     </div>
                     <div >
                         {children}
-
                     </div>
                 </div>
             </Session>

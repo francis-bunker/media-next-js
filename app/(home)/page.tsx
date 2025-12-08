@@ -6,7 +6,6 @@ import Post from "./post";
 
 export default function Home() {
   const [posts, setPosts] = useState<any[]>([]);
-
   const fetchPosts = async () => {
     const data = await client.getAllPosts();
     setPosts(data);
@@ -21,17 +20,13 @@ export default function Home() {
   }, []);
 
   return (
-
-    <div id="home" className="d-flex flex-column flex-md-row vh-100">
-      <div id="post-list" className="w-100 w-md-50 flex-grow-1 p-4 overflow-y-auto">
-        <h2 className="mb-4">Recent Posts</h2>
+    <div id="home" className="container-fluid">
+        <h2 className="mb-4 text-center">Recent Posts</h2>
         {posts.map((post: any) => (
           <div key={post._id} >
             <Post {...post} onDelete={handlePostDeleted} />
-
           </div>
         ))}
-      </div>
     </div>
   );
 }

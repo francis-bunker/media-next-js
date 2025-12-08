@@ -19,25 +19,21 @@ export default function Post({ onDelete, ...post }: any) {
                 setPlaceTitle("Unknown Place");
             }
         }
-
         loadTitle();
     }, [post.place_id]);
 
     const handleDelete = async () => {
         await client.deletePost(post._id);
         if (onDelete) onDelete(post._id);
-
     };
-
     return (
-
-        <div className="card mx-auto mb-3" style={{ maxWidth: "24rem" }}>
+        <div className="card mx-auto mb-3" style={{ maxWidth: "75rem" }}>
             <div className="card-header fw-bold d-flex justify-content-between align-items-center">
                 <div>
                     <Link href={`/profile/${post.user_id?._id}`}>
                         {post.user_id?.username}
                     </Link>
-                    <span> @ </span>
+                    <a> @ </a>
                     <Link href={`/details/${post.place_id}`}>
                         {placeTitle}
                     </Link>

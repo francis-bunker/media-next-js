@@ -20,16 +20,15 @@ export default function Signup() {
         redirect("/profile");
     }
     return (
-        <div className="wd-signup-screen">
+        <div className="signup-screen">
             <h1>Sign up</h1>
             <FormControl value={user.username} onChange={(e) => setUser({ ...user, username: e.target.value })}
-                className="wd-username b-2" placeholder="username" />
+                className="username b-2" placeholder="username" />
             <FormControl value={user.password} onChange={(e) => setUser({ ...user, password: e.target.value })}
-                className="wd-password mb-2" placeholder="password" type="password" />
-            <button onClick={signup} className="wd-signup-btn btn btn-primary mb-2 w-100"> Sign up </button><br />
-            <button onClick={signupAdmin} className="wd-signup-btn btn btn-primary mb-2 w-100"> Sign up as admin</button><br />
-
-            <Link href="/login" className="wd-signin-link">Sign in</Link>
+                className="password mb-2" placeholder="password" type="password" />
+            <button onClick={signup} className="signup-btn btn btn-primary mb-2 w-100"> Sign up </button><br />
+            <button onClick={signupAdmin} className="signup-btn btn btn-primary mb-2 w-100"> Sign up as admin</button><br />
+            <Link href="/login" className="signin-link">Sign in</Link>
         </div>
     );
 }
