@@ -6,21 +6,9 @@ import * as client from "./client";
 import { useSelector } from "react-redux";
 
 export default function Post({ onDelete, ...post }: any) {
-    const [placeTitle, setPlaceTitle] = useState<string>("Loading...");
     const { currentUser } = useSelector((state: any) => state.account);
+    console.log(post.place_name);
 
-    useEffect(() => {
-        async function loadTitle() {
-            try {
-                const title = await client.getPlaceTitle(post.place_id);
-                setPlaceTitle(title || "Unknown Place");
-            } catch (err) {
-                console.error("Place title load error:", err);
-                setPlaceTitle("Unknown Place");
-            }
-        }
-        loadTitle();
-    }, [post.place_id]);
 
     const handleDelete = async () => {
         await client.deletePost(post._id);
@@ -35,7 +23,7 @@ export default function Post({ onDelete, ...post }: any) {
                     </Link>
                     <a> @ </a>
                     <Link href={`/details/${post.place_id}`}>
-                        {placeTitle}
+                        {post.place_name}
                     </Link>
                 </div>
                 {(currentUser?._id === post.user_id?._id || currentUser?.user_type === "admin") && (

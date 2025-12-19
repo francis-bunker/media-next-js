@@ -35,6 +35,7 @@ export default function Details({ params }: { params: Promise<{ did: string }> }
             text,
             user_id: currentUser._id,
             place_id: did,
+            place_name: placeDetails.displayName.text,
         });
 
         if (newPost) {

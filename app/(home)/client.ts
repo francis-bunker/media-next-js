@@ -79,6 +79,11 @@ export const getPlaceTitle = async (placeId: string) => {
     return response.data;
 }
 
+export const getDBPlaceTitleByPostId = async (postId: string) => {
+    const response = await axiosPublic.get(`/api/posts/${postId}/title`);
+    return response.data;
+}
+
 export const deletePost = async (postId: string) => {
     const response = await axiosWithCredentials.delete(`/api/posts/${postId}`);
     return response.data;
